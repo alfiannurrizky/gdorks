@@ -21,4 +21,9 @@ To contribute to G-DORKS, make sure you understand the basic usage of the follow
 
 #### Contribution Guidelines
 
-    1. Free to modifed and push to main branch
+    1. Fork this repository
+    2. clone fork
+    3. create new branch e.g (feature/save-file)
+    4. push the new branch e.g (git push -u origin feature/save-file )
+
+    i will accept the pull request

@@ -1,0 +1,59 @@
+intext:username= AND intext:password= 
+filetype:pdf intext:password
+intitle:index.of “parent directory”
+inurl:/proc/self/environ
+intext:username= AND intext:password= 
+inurl:/wp-content/uploads/
+intitle:login
+inurl:/cgi-bin/
+inurl:/wp-admin/
+intitle:”index of” “config.yml”
+ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini
+intext:”sql syntax near” | intext:”syntax error has occurred” | intext:”incorrect syntax near” | intext:”unexpected end of SQL command”
+inurl:/phpmyadmin/
+intext:”powered by wordpress”
+intitle:”Index of /” “config.php”
+intitle:”phpinfo()”
+ext:log
+intext:”login” inurl:”/admin”
+intext:”Error Message : Error loading required libraries.”
+filetype:sql password
+inurl:/password.txt
+intitle:”index of” .htpasswd
+intitle:”Index of /” “.ssh”
+ext:php | ext:asp | ext:aspx | ext:jsp
+intitle:”index of” db_backup.sql | db.sql | database.sql | sql | .sql.gz | .sql.bz2
+filetype:pdf “Confidential” | “Secret” | “Classified”
+inurl:/cgi-bin/ + intext:”User ID” + intext:”Password”
+intitle:”Index of /” “backup”
+inurl:”/wp-content/uploads/” + intext:”Index of /”
+inurl:wp-config.php
+inurl:server-status
+ext:doc | ext:docx | ext:pdf | ext:xls | ext:xlsx | ext:ppt | ext:pptx
+inurl:/api/
+ext:php intitle:phpinfo “published by the PHP Group”
+intitle:”index of” “.git”
+filetype:env
+inurl:/wp-json/wp/v2/users/
+inurl:/plugins/servlet/watermark/
+intext:”Sign in” | intext:”Sign in to” | intext:”Log in” | intext:”Log in to”
+intitle:”Index of /” “web.config”
+inurl:/cgi-bin/login.cgi
+ext:sql | ext:dbf | ext:mdb
+inurl:”/manage/advanced/”
+inurl:/conf/
+inurl:/cgi-bin/ + intext:”login” + intext:”password”
+intext:”Powered by” AND intext:”PHP Version”
+intitle:”index of” “.htpasswd”
+inurl:wp-includes | inurl:wp-content | inurl:wp-admin | inurl:wp-login.php
+inurl:/api/v1
+intitle:”Index of /” “config.json”
+ext:php intext:”Powered by” AND intext:”admin”
+inurl:/mailman/listinfo/
+intitle:”Index of /” “error_log”
+filetype:env intext:DB_USERNAME
+inurl:”/admin/user/”
+intitle:”Index of /” “php.ini”
+inurl:admin.php intext:”username” intext:”password”
+filetype:txt | filetype:log | filetype:xml | filetype:ini | filetype:conf | filetype:cnf | filetype:reg | filetype:inf
+intext:”Web Explorer Server — Login”

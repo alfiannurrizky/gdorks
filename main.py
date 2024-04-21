@@ -6,6 +6,7 @@ try:
 except ImportError: 
     print("No module named 'google' found")
     
+#just simple banner
 def banner():
     txt = ("""
  ░▒▓██████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓███████▓▒░ 
@@ -23,7 +24,8 @@ def banner():
  Linkedin: https://www.linkedin.com/in/alfian-nurrizky/ \n\n""")
     print(txt)
     print(author)
-    
+
+#function for send request to google    
 def query(domain, payload, take):
     counter = 0
     for result in search("site:" + domain +" "+  payload, num=int(take), stop=int(take), pause=5):
@@ -45,6 +47,8 @@ def dorking():
 
     try:
         print("Finding Target...")
+        
+        #flag arguments
         parser = argparse.ArgumentParser()
         parser.add_argument("-d", "--domain", help="Input domain e.g google.com")
         parser.add_argument("-t", "--take", help="Number of result you want")
@@ -58,6 +62,7 @@ def dorking():
         elif not args.take:
             parser.error("Please provide either the -t option")
         
+        # read line by line in payload.txt
         count = 0
         file1 = open('payload.txt', 'r')
         lines = file1.readlines()
@@ -66,6 +71,7 @@ def dorking():
             count += 1
             payload = line.strip()
         
+        # call query function for send request url to google with payload given in txt file.
             query(args.domain, payload, args.take)
             
     except Exception as e:

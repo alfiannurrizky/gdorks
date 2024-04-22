@@ -9,9 +9,9 @@
 ```
 pip install googlesearch-python
 
-▶ git clone https://github.com/alfiannurrizky/g-dorks.git
+▶ git clone https://github.com/alfiannurrizky/gdorks.git
 
-cd g-dorks
+cd gdorks
 
 python3 gdorks.py -d domain.com -t 10
 ```

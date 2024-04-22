@@ -59,7 +59,7 @@ def query(domain, payload, take, save_file):
         counter += 1
         results_found = True
         
-        print(f"[+]{Fore.CYAN} {counter}. Payload {payload} -> {result}")
+        print(f"[+]{Fore.CYAN} {counter}. Payload {payload} -> {result} {Style.RESET_ALL}")
         
         if save_file:
             save_output_file(save_file, result)

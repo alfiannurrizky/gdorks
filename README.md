@@ -1,4 +1,4 @@
-# G-DORKS
+# GDORKS
 
 ## Install
 
@@ -18,12 +18,13 @@ To contribute to G-DORKS, make sure you understand the basic usage of the follow
 
     -d <domain>: Specifies the domain name to be scanned. Make sure to provide the domain name correctly.
     -t <take>: Specifies the number of results to be fetched from the Google search. This will limit the number of results displayed.
+    -w <wordlist>: Path to the wordlist file (OPTIONAL)
 
 #### Contribution Guidelines
 
-    1. Fork this repository
-    2. clone fork
-    3. create new branch e.g (feature/save-output-file)
-    4. push the new branch e.g (git push -u origin feature/save-output-file )
+    1. Fork this repository.
+    2. clone fork.
+    3. create new branch e.g (feature/save-output-file).
+    4. push the new branch e.g (git push -u origin feature/save-output-file ).
 
     i will accept the pull request

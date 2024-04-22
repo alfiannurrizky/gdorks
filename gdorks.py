@@ -24,8 +24,34 @@ def banner():
  Linkedin: https://www.linkedin.com/in/alfian-nurrizky/ \n\n""")
     print(txt)
     print(author)
+    
+def flags():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-d", "--domain", help="Input domain e.g google.com")
+    parser.add_argument("-t", "--take", help="Number of result you want")
+    parser.add_argument("-w", "--wordlist", help="Path to the wordlist file (OPTIONAL)")
+    parser.add_argument("-o", "--output", help="Save output to file (OPTIONAL)")
+    args = parser.parse_args()
+    parser.parse_args()
+    
+    if not args.domain and not args.take:
+        parser.error("Please provide either the -d option and the -t option.")
+    elif not args.domain:
+        parser.error("Please provide either the -d option")
+    elif not args.take:
+        parser.error("Please provide either the -t option")
+        
+    return args
+    
+    
+def save_output_file(file, result):
+    output_file = open(file, "a")
+    output_file.write(str(result))
+    output_file.write("\n")
+    output_file.close()
+    
   
-def query(domain, payload, take):
+def query(domain, payload, take, save_file):
     counter = 0
     results_found = False
     
@@ -33,7 +59,10 @@ def query(domain, payload, take):
         counter += 1
         results_found = True
         
-        print(f"[+]{Fore.GREEN} {counter}. Payload {payload} -> {result}")
+        print(f"[+]{Fore.CYAN} {counter}. Payload {payload} -> {result}")
+        
+        if save_file:
+            save_output_file(save_file, result)
         
         time.sleep(0.1)
                 
@@ -51,21 +80,9 @@ def dorking():
     banner()
 
     try:
-        parser = argparse.ArgumentParser()
-        parser.add_argument("-d", "--domain", help="Input domain e.g google.com")
-        parser.add_argument("-t", "--take", help="Number of result you want")
-        parser.add_argument("-w", "--wordlist", help="Path to the wordlist file (OPTIONAL)")
-        args = parser.parse_args()
-        parser.parse_args()
-        
-        if not args.domain and not args.take:
-            parser.error("Please provide either the -d option and the -t option.")
-        elif not args.domain:
-            parser.error("Please provide either the -d option")
-        elif not args.take:
-            parser.error("Please provide either the -t option")
-        
+        args = flags()     
         count = 0
+        
         if args.wordlist:
             payload_file = open(args.wordlist, "r")
         else:
@@ -80,7 +97,7 @@ def dorking():
             termwidth = 100
             print(f"╭{'─' * (termwidth - 2)}╮\n{Fore.YELLOW} ╰─> SEARCHING FOR PAYLOAD{Style.RESET_ALL} : {Fore.WHITE}{payload}\n{Style.RESET_ALL}╰{'─' * (termwidth - 2)}╯\n")
         
-            query(args.domain, payload, args.take)
+            query(args.domain, payload, args.take, args.output)
             
     except KeyboardInterrupt:
         print("\n")

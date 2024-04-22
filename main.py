@@ -54,7 +54,7 @@ def dorking():
         parser = argparse.ArgumentParser()
         parser.add_argument("-d", "--domain", help="Input domain e.g google.com")
         parser.add_argument("-t", "--take", help="Number of result you want")
-        parser.add_argument("-w", "--wordlist", help="Optional wordlist file")
+        parser.add_argument("-w", "--wordlist", help="Path to the wordlist file (OPTIONAL)")
         args = parser.parse_args()
         parser.parse_args()
         

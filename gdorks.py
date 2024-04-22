@@ -28,7 +28,7 @@ def banner():
 def flags():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--domain", help="Input domain e.g google.com")
-    parser.add_argument("-t", "--take", help="Number of result you want")
+    parser.add_argument("-t", "--take", help="Determines the number of results to be retrieved on each payload.")
     parser.add_argument("-w", "--wordlist", help="Path to the wordlist file (OPTIONAL)")
     parser.add_argument("-o", "--output", help="Save output to file (OPTIONAL)")
     args = parser.parse_args()

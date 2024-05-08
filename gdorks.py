@@ -1,10 +1,7 @@
-try:
-    from googlesearch import search
-    import time
-    import argparse
-    from colorama import Fore, Style
-except ImportError: 
-    print("No module found")
+from googlesearch import search
+import time
+import argparse    
+from colorama import Fore, Style
     
 def banner():
     txt = ("""
@@ -24,12 +21,13 @@ def banner():
  Linkedin: https://www.linkedin.com/in/alfian-nurrizky/ \n\n""")
     print(txt)
     print(author)
-    
+     
 def flags():
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--domain", help="Input domain e.g google.com")
     parser.add_argument("-t", "--take", help="Determines the number of results to be retrieved on each payload.")
     parser.add_argument("-w", "--wordlist", help="Path to the wordlist file (OPTIONAL)")
+    parser.add_argument("-p", "--pause", default= 5, help="Pause time between requests (default: 5)")
     parser.add_argument("-o", "--output", help="Save output to file (OPTIONAL)")
     args = parser.parse_args()
     parser.parse_args()
@@ -51,11 +49,11 @@ def save_output_file(file, result):
     output_file.close()
     
   
-def query(domain, payload, take, save_file):
+def query(domain, payload, take, save_file, pause):
     counter = 0
     results_found = False
     
-    for result in search("site:" + domain +" "+  payload, num=int(take), stop=int(take), pause=5):
+    for result in search("site:" + domain +" "+  payload, num=int(take), stop=int(take), pause=int(pause)):
         counter += 1
         results_found = True
         
@@ -78,8 +76,9 @@ def query(domain, payload, take, save_file):
  
 def dorking():
     banner()
-
+    
     try:
+
         args = flags()     
         count = 0
         
@@ -97,7 +96,7 @@ def dorking():
             termwidth = 100
             print(f"╭{'─' * (termwidth - 2)}╮\n{Fore.YELLOW} ╰─> SEARCHING FOR PAYLOAD{Style.RESET_ALL} : {Fore.WHITE}{payload}\n{Style.RESET_ALL}╰{'─' * (termwidth - 2)}╯\n")
         
-            query(args.domain, payload, args.take, args.output)
+            query(args.domain, payload, args.take, args.output, args.pause)
             
     except KeyboardInterrupt:
         print("\n")

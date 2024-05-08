@@ -23,6 +23,7 @@ To contribute to G-DORKS, make sure you understand the basic usage of the follow
     -d <domain>: Specifies the domain name to be scanned. Make sure to provide the domain name correctly.
     -t <take>: Determines the number of results to be retrieved on each payload.
     -w <wordlist>: Path to the wordlist file (OPTIONAL).
+    -p <pause>: Pause time between requests (default: 5).
     -o <output>: Save output to file (OPTIONAL).
 
 Mandatory Command :
